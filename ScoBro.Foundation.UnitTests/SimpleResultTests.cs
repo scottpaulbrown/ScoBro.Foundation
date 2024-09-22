@@ -67,13 +67,14 @@ namespace ScoBro.Foundation.Tests {
         [Test]
         public void SimpleResult_Fail() {
             // Act
-            SimpleResult<int> result = SimpleResult.Fail<int>();
+            SimpleResult<int> result = SimpleResult.Fail<int>("It Failed");
 
             Assert.Multiple(() => {
                 // Assert
                 Assert.That(result.WasSuccessful, Is.False);
                 Assert.That(result.Value, Is.EqualTo(default(int)));
-                Assert.That(result.Errors, Is.Empty);
+                Assert.That(result.Errors.Count(), Is.EqualTo(1));
+                Assert.That(result.Errors.First(), Is.EqualTo("It Failed"));
             });
         }
     }

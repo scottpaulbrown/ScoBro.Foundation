@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title>ScoBro Foundation</Title>
-    <Version>0.0.1-alpha</Version>
+    <Version>0.0.2-alpha</Version>
     <Authors>Scott Brown</Authors>
     <Company>ScoBro Software</Company>
     <PackageProjectUrl>https://github.com/scottpaulbrown/ScoBro.Foundation</PackageProjectUrl>
