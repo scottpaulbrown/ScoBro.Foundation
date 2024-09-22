@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Title>ScoBro Foundation</Title>
+    <Version>0.0.1-alpha</Version>
+    <Authors>Scott Brown</Authors>
+    <Company>ScoBro Software</Company>
+    <PackageProjectUrl>https://github.com/scottpaulbrown/ScoBro.Foundation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/scottpaulbrown/ScoBro.Foundation</RepositoryUrl>
+  </PropertyGroup>
+
+    <ItemGroup>
+	    <PackageReference Include="FluentResults" Version="3.16.0" />		
+    </ItemGroup>
+	
+</Project>
