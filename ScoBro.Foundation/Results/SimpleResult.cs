@@ -12,6 +12,7 @@ public record class SimpleResult {
     public static SimpleResult<T> Ok<T>(T value) => new(value, true);
     public static SimpleResult<T> Fail<T>(string message) => new(default, false, [ message ]);
     public static SimpleResult<T> Fail<T>(IEnumerable<string> errors) => new(default, false, errors);
+    public static SimpleResult<T> FailNotFound<T>() => Fail<T>("The requested resource was not found");
 
     public static SimpleResult Ok() => new(true);
     public static SimpleResult Fail(string message) => new(false, [message]);

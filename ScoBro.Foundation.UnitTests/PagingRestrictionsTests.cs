@@ -10,7 +10,7 @@ namespace ScoBro.Foundation.Tests {
             var restrictions = new PagingRestrictions(1, 10);
 
             // Act
-            var offset = restrictions.Offset;
+            var offset = restrictions.GetOffset();
 
             // Assert
             offset.Should().Be(0);
@@ -22,7 +22,7 @@ namespace ScoBro.Foundation.Tests {
             var restrictions = new PagingRestrictions(2, 10);
 
             // Act
-            var offset = restrictions.Offset;
+            var offset = restrictions.GetOffset();
 
             // Assert
             offset.Should().Be(10);
@@ -34,7 +34,7 @@ namespace ScoBro.Foundation.Tests {
             var restrictions = new PagingRestrictions(-1, 10);
 
             // Act
-            var offset = restrictions.Offset;
+            var offset = restrictions.GetOffset();
 
             // Assert
             offset.Should().Be(0);
@@ -46,7 +46,7 @@ namespace ScoBro.Foundation.Tests {
             var restrictions = new PagingRestrictions(1, 0);
 
             // Act
-            var offset = restrictions.Offset;
+            var offset = restrictions.GetOffset();
 
             // Assert
             offset.Should().Be(0);
