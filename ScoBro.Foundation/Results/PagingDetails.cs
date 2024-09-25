@@ -2,19 +2,19 @@
 namespace ScoBro.Foundation;
 
 public interface IPagingDetails : IPagingRestrictions {
-    int TotalPages { get; }   
+    int TotalPages { get; init; }   
 }
 
 public interface IPagingRestrictions {
-    int CurrentPage { get; }    
-    int PageSize { get; }
+    int CurrentPage { get; init; }    
+    int PageSize { get; init; }
 
     int GetOffset();
 }
 
 public record class PagingRestrictions : IPagingRestrictions {
-    public int CurrentPage { get; }
-    public int PageSize { get; }
+    public int CurrentPage { get; init; }
+    public int PageSize { get; init; }
 
     public PagingRestrictions(int currentPage, int pageSize) {
         CurrentPage = currentPage;
@@ -30,7 +30,7 @@ public record class PagingRestrictions : IPagingRestrictions {
 }
 
 public record class PagingDetails : PagingRestrictions, IPagingDetails {
-    public int TotalPages { get; }
+    public int TotalPages { get; init; }
 
     public PagingDetails(int totalPages, IPagingRestrictions restrictions) : base(restrictions) {
         TotalPages = totalPages;
