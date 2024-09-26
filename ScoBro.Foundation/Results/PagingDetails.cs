@@ -16,6 +16,8 @@ public record class PagingRestrictions : IPagingRestrictions {
     public int CurrentPage { get; init; }
     public int PageSize { get; init; }
 
+    public PagingRestrictions() {}
+
     public PagingRestrictions(int currentPage, int pageSize) {
         CurrentPage = currentPage;
         PageSize = pageSize;
@@ -31,6 +33,8 @@ public record class PagingRestrictions : IPagingRestrictions {
 
 public record class PagingDetails : PagingRestrictions, IPagingDetails {
     public int TotalPages { get; init; }
+
+    public PagingDetails() { }
 
     public PagingDetails(int totalPages, IPagingRestrictions restrictions) : base(restrictions) {
         TotalPages = totalPages;
