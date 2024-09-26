@@ -6,4 +6,6 @@ public record class PagedList<T> : PagingDetails {
     }
 
     public List<T> Items { get; }
+
+    public static PagedList<TEntity> Empty<TEntity>() => new([], new PagingDetails(0, 1, 30));
 }
