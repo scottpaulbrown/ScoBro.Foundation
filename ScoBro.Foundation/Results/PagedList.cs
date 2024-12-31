@@ -7,11 +7,12 @@ public record class PagedList<T> : PagingDetails {
 
     public PagedList() { }
 
-    public PagedList(List<T> items, int totalPages, int currentPage, int pageSize) : base(totalPages, currentPage, pageSize) {
+    public PagedList(List<T> items, int totalPages, int currentPage, int pageSize, string sortField, string sortDirection) 
+        : base(totalPages, currentPage, pageSize, sortField, sortDirection) {
         Items = items;
     }
 
-    public List<T> Items { get; protected set; } = [];
+    public List<T> Items { get; init; } = [];
 
-    public static PagedList<TEntity> Empty<TEntity>() => new([], new PagingDetails(0, 1, 30));
+    public static PagedList<TEntity> Empty<TEntity>() => new([], new PagingDetails(0, 1, 30, "", ""));
 }

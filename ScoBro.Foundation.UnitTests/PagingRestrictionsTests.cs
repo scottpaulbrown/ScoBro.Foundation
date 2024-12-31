@@ -7,7 +7,7 @@ namespace ScoBro.Foundation.Tests {
         [Test]
         public void Offset_Should_Return_Correct_Value_When_CurrentPage_Is_1() {
             // Arrange
-            var restrictions = new PagingRestrictions(1, 10);
+            var restrictions = new PagingRestrictions(1, 10, "Test", "Ascending");
 
             // Act
             var offset = restrictions.GetOffset();
@@ -19,7 +19,7 @@ namespace ScoBro.Foundation.Tests {
         [Test]
         public void Offset_Should_Return_Correct_Value_When_CurrentPage_Is_Greater_Than_1() {
             // Arrange
-            var restrictions = new PagingRestrictions(2, 10);
+            var restrictions = new PagingRestrictions(2, 10, "Test", "Ascending");
 
             // Act
             var offset = restrictions.GetOffset();
@@ -31,7 +31,7 @@ namespace ScoBro.Foundation.Tests {
         [Test]
         public void Offset_Should_Return_Correct_Value_When_CurrentPage_Is_Negative() {
             // Arrange
-            var restrictions = new PagingRestrictions(-1, 10);
+            var restrictions = new PagingRestrictions(-1, 10, "Test", "Ascending");
 
             // Act
             var offset = restrictions.GetOffset();
@@ -43,7 +43,7 @@ namespace ScoBro.Foundation.Tests {
         [Test]
         public void Offset_Should_Return_Correct_Value_When_PageSize_Is_0() {
             // Arrange
-            var restrictions = new PagingRestrictions(1, 0);
+            var restrictions = new PagingRestrictions(1, 0, "Test", "Ascending");
 
             // Act
             var offset = restrictions.GetOffset();
