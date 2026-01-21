@@ -2,6 +2,8 @@
 
 namespace ScoBro.Foundation;
 
+public record EnumWithDescriptionDto(string Id, string Description);
+
 public record EnumBase {
 #pragma warning disable CS8618
     protected EnumBase() { }
