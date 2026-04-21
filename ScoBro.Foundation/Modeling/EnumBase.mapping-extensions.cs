@@ -1,4 +1,4 @@
-namespace ScoBro.Foundation.Modeling;
+namespace ScoBro.Foundation;
 
 /// <summary>
 /// Mapping extensions for <see cref="EnumBase{T}"/>-derived types.
