@@ -1,12 +1,15 @@
 namespace ScoBro.Foundation.Modeling;
 
+/// <summary>
+/// Mapping extensions for <see cref="EnumBase{T}"/>-derived types.
+/// </summary>
 public static class EnumBaseMappingExtensions {
     /// <summary>
-    /// Converts an EnumTypeWithDescription to an EnumWithDescriptionDto.
+    /// Projects an <see cref="EnumTypeWithDescription{T}"/> value to an <see cref="EnumWithDescriptionDto"/>.
     /// </summary>
-    /// <typeparam name="T">The type of the enum.</typeparam>
-    /// <param name="domainEnum">The domain enum to convert.</param>
-    /// <returns>The converted enum with description DTO.</returns>
+    /// <typeparam name="T">The concrete enumeration type.</typeparam>
+    /// <param name="domainEnum">The enumeration value to map.</param>
+    /// <returns>An <see cref="EnumWithDescriptionDto"/> containing the id and description.</returns>
     public static EnumWithDescriptionDto ToDto<T>(this EnumTypeWithDescription<T> domainEnum) where T : EnumTypeWithDescription<T> =>
         new(domainEnum.Id, domainEnum.Description);
 }

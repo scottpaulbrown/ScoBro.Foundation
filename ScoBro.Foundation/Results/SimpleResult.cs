@@ -81,7 +81,7 @@ public record class SimpleResult
     /// <typeparam name="T">The type of the value.</typeparam>
     /// <param name="message">The error message.</param>
     /// <returns>A failed <see cref="SimpleResult{T}"/> with UserError failure type.</returns>
-    public static SimpleResult<T> FailWIthUserError<T>(string message) => new(default, false, [message], FailureType.UserError);
+    public static SimpleResult<T> FailWithUserError<T>(string message) => new(default, false, [message], FailureType.UserError);
 
     /// <summary>
     /// Creates a failed result with a UserError failure type and multiple error messages.
@@ -89,7 +89,7 @@ public record class SimpleResult
     /// <typeparam name="T">The type of the value.</typeparam>
     /// <param name="errors">The collection of error messages.</param>
     /// <returns>A failed <see cref="SimpleResult{T}"/> with UserError failure type.</returns>
-    public static SimpleResult<T> FailWIthUserError<T>(List<string> errors) => new(default, false, errors, FailureType.UserError);
+    public static SimpleResult<T> FailWithUserError<T>(IEnumerable<string> errors) => new(default, false, errors, FailureType.UserError);
 
     /// <summary>
     /// Creates a failed result with a ValidationError failure type and a single error message.
@@ -97,7 +97,7 @@ public record class SimpleResult
     /// <typeparam name="T">The type of the value.</typeparam>
     /// <param name="message">The error message.</param>
     /// <returns>A failed <see cref="SimpleResult{T}"/> with ValidationError failure type.</returns>
-    public static SimpleResult<T> FailWIthValidationErrors<T>(string message) => new(default, false, [message], FailureType.ValidationError);
+    public static SimpleResult<T> FailWithValidationErrors<T>(string message) => new(default, false, [message], FailureType.ValidationError);
 
     /// <summary>
     /// Creates a failed result with a ValidationError failure type and multiple error messages.
@@ -105,7 +105,7 @@ public record class SimpleResult
     /// <typeparam name="T">The type of the value.</typeparam>
     /// <param name="errors">The collection of error messages.</param>
     /// <returns>A failed <see cref="SimpleResult{T}"/> with ValidationError failure type.</returns>
-    public static SimpleResult<T> FailWIthValidationErrors<T>(List<string> errors) => new(default, false, errors, FailureType.ValidationError);
+    public static SimpleResult<T> FailWithValidationErrors<T>(IEnumerable<string> errors) => new(default, false, errors, FailureType.ValidationError);
 
     /// <summary>
     /// Creates a failed result with a SystemError failure type.
@@ -113,7 +113,7 @@ public record class SimpleResult
     /// <typeparam name="T">The type of the value.</typeparam>
     /// <param name="message">The error message.</param>
     /// <returns>A failed <see cref="SimpleResult{T}"/> with SystemError failure type.</returns>
-    public static SimpleResult<T> FailWIthSystemError<T>(string message) => new(default, false, [message], FailureType.SystemError);
+    public static SimpleResult<T> FailWithSystemError<T>(string message) => new(default, false, [message], FailureType.SystemError);
 
     /// <summary>
     /// Creates a failed result with a Forbidden failure type.
@@ -124,12 +124,12 @@ public record class SimpleResult
     public static SimpleResult<T> FailWithForbidden<T>(string message = "User is not authorized for this action") => new(default, false, [message], FailureType.Forbidden);
 
     /// <summary>
-    /// Creates a failed result with an UnAuthorized failure type.
+    /// Creates a failed result with an Unauthorized failure type.
     /// </summary>
     /// <typeparam name="T">The type of the value.</typeparam>
     /// <param name="message">The error message. Defaults to "User is not authorized".</param>
-    /// <returns>A failed <see cref="SimpleResult{T}"/> with UnAuthorized failure type.</returns>
-    public static SimpleResult<T> FailWithUnAuthorized<T>(string message = "User is not authorized") => new(default, false, [message], FailureType.UnAuthorized);
+    /// <returns>A failed <see cref="SimpleResult{T}"/> with Unauthorized failure type.</returns>
+    public static SimpleResult<T> FailWithUnauthorized<T>(string message = "User is not authorized") => new(default, false, [message], FailureType.Unauthorized);
 
     /// <summary>
     /// Creates a successful result without a value.
@@ -156,35 +156,35 @@ public record class SimpleResult
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <returns>A failed <see cref="SimpleResult"/> with UserError failure type.</returns>
-    public static SimpleResult FailWIthUserError(string message) => new(false, [message], FailureType.UserError);
+    public static SimpleResult FailWithUserError(string message) => new(false, [message], FailureType.UserError);
 
     /// <summary>
     /// Creates a failed result with a UserError failure type and multiple error messages.
     /// </summary>
     /// <param name="errors">The collection of error messages.</param>
     /// <returns>A failed <see cref="SimpleResult"/> with UserError failure type.</returns>
-    public static SimpleResult FailWIthUserError(List<string> errors) => new(false, errors, FailureType.UserError);
+    public static SimpleResult FailWithUserError(IEnumerable<string> errors) => new(false, errors, FailureType.UserError);
 
     /// <summary>
-    /// Creates a failed result with a UserError failure type and a single error message.
+    /// Creates a failed result with a ValidationError failure type and a single error message.
     /// </summary>
     /// <param name="message">The error message.</param>
-    /// <returns>A failed <see cref="SimpleResult"/> with UserError failure type.</returns>
-    public static SimpleResult FailWIthValidationErrors(string message) => new(false, [message], FailureType.UserError);
+    /// <returns>A failed <see cref="SimpleResult"/> with ValidationError failure type.</returns>
+    public static SimpleResult FailWithValidationErrors(string message) => new(false, [message], FailureType.ValidationError);
 
     /// <summary>
-    /// Creates a failed result with a UserError failure type and multiple error messages.
+    /// Creates a failed result with a ValidationError failure type and multiple error messages.
     /// </summary>
     /// <param name="errors">The collection of error messages.</param>
-    /// <returns>A failed <see cref="SimpleResult"/> with UserError failure type.</returns>
-    public static SimpleResult FailWIthValidationErrors(List<string> errors) => new(false, errors, FailureType.UserError);
+    /// <returns>A failed <see cref="SimpleResult"/> with ValidationError failure type.</returns>
+    public static SimpleResult FailWithValidationErrors(IEnumerable<string> errors) => new(false, errors, FailureType.ValidationError);
 
     /// <summary>
     /// Creates a failed result with a SystemError failure type.
     /// </summary>
     /// <param name="message">The error message.</param>
     /// <returns>A failed <see cref="SimpleResult"/> with SystemError failure type.</returns>
-    public static SimpleResult FailWIthSystemError(string message) => new(false, [message], FailureType.SystemError);
+    public static SimpleResult FailWithSystemError(string message) => new(false, [message], FailureType.SystemError);
 
     /// <summary>
     /// Creates a failed result with a NotFound failure type.
@@ -201,23 +201,29 @@ public record class SimpleResult
     public static SimpleResult FailWithForbidden(string message = "User is not authorized for this action") => new(false, [message], FailureType.Forbidden);
 
     /// <summary>
-    /// Creates a failed result with an UnAuthorized failure type.
+    /// Creates a failed result with an Unauthorized failure type.
     /// </summary>
     /// <param name="message">The error message. Defaults to "User is not authorized".</param>
-    /// <returns>A failed <see cref="SimpleResult"/> with UnAuthorized failure type.</returns>
-    public static SimpleResult FailWithUnAuthorized(string message = "User is not authorized") => new(false, [message], FailureType.UnAuthorized);
+    /// <returns>A failed <see cref="SimpleResult"/> with Unauthorized failure type.</returns>
+    public static SimpleResult FailWithUnauthorized(string message = "User is not authorized") => new(false, [message], FailureType.Unauthorized);
 
     /// <summary>
     /// Converts this non-generic result to a generic result of a different type, preserving the success status, errors, and failure type.
     /// </summary>
     /// <typeparam name="TNew">The new value type for the result.</typeparam>
     /// <returns>A new <see cref="SimpleResult{TNew}"/> with the same success status, errors, and failure type as this result.</returns>
-    public SimpleResult<TNew> Switch<TNew>(FailureType? failureType = null) => new(
-        value: default,
-        wasSuccessful: WasSuccessful,
-        errors: Errors,
-        failureType: failureType ?? FailureType
-    );
+    public SimpleResult<TNew> Switch<TNew>(FailureType? failureType = null)
+    {
+        if (WasSuccessful)
+            throw new InvalidOperationException("Switch cannot be called on a successful result.");
+
+        return new(
+            value: default,
+            wasSuccessful: false,
+            errors: Errors,
+            failureType: failureType ?? FailureType
+        );
+    }
 }
 
 /// <summary>
